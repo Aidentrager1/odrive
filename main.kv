@@ -1,0 +1,50 @@
+<MainScreen>:
+    #: import time __main__.time
+
+    btn: btn
+    name: 'main'
+    btn3: btn3
+    btn2: btn2
+    on_enter: root.startup()
+    FloatLayout:
+        size_hint: None, None
+
+
+
+    DPEAButton:
+        id: btn3
+        text: "Method"
+        size: 100, 100
+        x: root.width * 0.9
+        y: root.height * 0.5
+        color: 1, 0, 0, 1
+        on_press: root.pressed2()
+
+
+    DPEAButton:
+        id: btn
+        text:"position 0"
+        size: 100, 100
+        x: root.width * 0.25
+        y: root.height * 0.25
+        color: 1, 0, 0, 1
+        on_press: root.position0()
+
+    Slider:
+        id: slider
+        min: 0
+        max: root.topspeed
+        step: 1
+        orientation: 'horizontal'
+        center_y: root.height * 0.9
+        size_hint: 1, .1
+        on_value: root.slider_something(slider.value)
+
+    DPEAButton:
+        id: btn2
+        text:"change direction"
+        size: 100, 100
+        x: root.width * 0.6
+        y: root.height * 0.25
+        color: 1, 0, 0, 1
+        on_press: root.motor_change_direction()
